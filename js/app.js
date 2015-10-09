@@ -23,7 +23,7 @@
         desc = document.createElement('p'),
         status = document.getElementById('status');
     
-    if (status.id) {
+    if (status && status.id) {
       status.parentNode.removeChild(status);
     }
     
