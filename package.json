@@ -1,0 +1,27 @@
+{
+  "name": "electron-physical-web-scan",
+  "version": "0.1.0",
+  "description": "Electron app for Mac OSX to scan for Physical Web (Eddystone) beacons",
+  "main": "main.js",
+  "scripts": {
+    "package": "node ./node_modules/electron-packager/cli.js ./ PhysicalWebScan --platform=darwin --arch=x64 --version=0.33.6 --ignore=node_modules/electron-rebuild --asar --icon=icon.icns"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dermike/electron-physical-web-scan.git"
+  },
+  "keywords": [
+    "electron",
+    "physical web"
+  ],
+  "author": "Mikael Jergefelt",
+  "license": "ISC",
+  "devDependencies": {
+    "electron-packager": "5.1.0",
+    "electron-prebuilt": "0.33.6",
+    "electron-rebuild": "1.0.1"
+  },
+  "dependencies": {
+    "noble": "1.1.0"
+  }
+}
