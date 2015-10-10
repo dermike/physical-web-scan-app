@@ -21,7 +21,7 @@ noble.on('scanStart', function() {
 
 noble.on('scanStop', function() {
   console.log('Scan stopped...');
-  mainWindow.webContents.send('status', 'Scanning stopped. Press &#8984; + S to restart scan.');
+  mainWindow.webContents.send('status', 'Scanning stopped. Press <span class="key">&#8984;</span> + <span class="key">S</span> to restart scan.');
 });
     
 noble.on('discover', function(peripheral) {
@@ -61,7 +61,7 @@ app.on('ready', function() {
             if (noble.state === 'poweredOn') {
               noble.startScanning(['feaa']);
             } else {
-              mainWindow.webContents.send('status', 'Bluetooth not ready or turned on. Press &#8984; + S to retry.');
+              mainWindow.webContents.send('status', 'Bluetooth not ready or turned on. Press <span class="key">&#8984;</span> + <span class="key">S</span> to retry.');
             }
           }
         },

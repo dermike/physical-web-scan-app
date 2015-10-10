@@ -67,6 +67,13 @@ button {
   z-index: 99;
 }
 
+.key {
+  background-color: #000;
+  border-radius: 3px;
+  color: #fff;
+  padding: 5px;
+}
+
 @-webkit-keyframes fadeInDown {
   0% {
     opacity: 0;
