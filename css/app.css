@@ -11,10 +11,6 @@ body {
   line-height: 1.4;
 }
 
-.hide {
-  display: none;
-}
-
 #results {
   width: 768px;
   max-width: 100%;
@@ -30,6 +26,10 @@ body {
   font-size: 13px;
   cursor: pointer;
   margin-top: 0;
+}
+
+#results p:last-child {
+  margin-bottom: 100px;
 }
 
 #results a {

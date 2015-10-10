@@ -17,9 +17,6 @@
     var button = document.createElement('button'),
         desc = document.createElement('p');
     
-    status.classList.add('hide');
-    status.setAttribute('aria-hidden', true);
-    
     button.innerHTML = message[0];
     button.onclick = function() { go(message[2]); };
     
