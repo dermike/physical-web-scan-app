@@ -4,7 +4,8 @@ var app = require('app'),
     noble = require('noble'),
     metadata = require('./metadata.js'),
     urldecode = require('./urldecode.js'),
-    mainWindow = null;
+    mainWindow = null,
+    counter = 0;
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function() {
@@ -14,6 +15,8 @@ app.on('window-all-closed', function() {
 noble.on('scanStart', function() {
   console.log('Scan started...');
   mainWindow.webContents.send('status', 'Scanning for Physical Web beacons', true);
+  counter = 0;
+  app.dock.setBadge('');
 });
 
 noble.on('scanStop', function() {
@@ -36,6 +39,10 @@ noble.on('discover', function(peripheral) {
     if (objects.length) {
       metadata(objects, function(message) {
         mainWindow.webContents.send('url', message);
+        if (!mainWindow.isFocused()) {
+          counter ++;
+          app.dock.setBadge('' + counter + '');
+        }
       });
     }
   }
@@ -93,4 +100,9 @@ app.on('ready', function() {
 
   });
   
+});
+
+app.on('browser-window-focus', function() {
+  counter = 0;
+  app.dock.setBadge('');
 });
