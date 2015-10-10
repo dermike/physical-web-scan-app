@@ -1,59 +1,55 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body {
   background: #fff;
   font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  line-height: 1.4;
+}
+
+.hide {
+  display: none;
 }
 
 #results {
   width: 768px;
   max-width: 100%;
+  position: absolute;
+  top: 0; right: 0; left: 0;
+  margin: auto;
+  margin-top: 10px;
 }
 
 #results p {
   color: #000;
-  padding: 0.5em 1em;
-  font-size: 14px;
+  padding: 0 20px;
+  font-size: 13px;
+  cursor: pointer;
+  margin-top: 0;
 }
 
 #results a {
   color: green;
   display: block;
-  margin: 0.5em 0;
+  margin: 0.2em 0;
 }
 
-.center {
-  position: absolute;
-  top: 0; right: 0; left: 0;
-  margin: auto;
-}
-
-.vertical-center {
-  position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
-  margin: auto;
-  height: 24px;
-  z-index: 99;
-}
-
-.button {
+button {
   cursor: pointer;
-  font-weight: 500;
-  min-height: 45px;
-  color: #fff;
+  text-align: left;
+  padding: 10px 20px 0 20px;
+  color: rgb(26, 13, 171);
+  background-color: transparent;
   font-family: inherit;
-  background-color: #2980b9;
-  font-size: 1.2em;
+  font-size: 18px;
   margin-bottom: 0;
-  min-height: 65px;
   border-style: solid;
   border-width: 0;
   -webkit-appearance: none;
-}
-
-.button:hover, .button:focus {
-  background-color: #006699;
-}
-
-.expand {
   display: block;
   width: 100%;
 }
@@ -61,9 +57,14 @@ body {
 #status {
   padding: 1.5em 1em;
   text-align: center;
-  color: #000;
+  color: #fff;
   font-size: 14px;
-  background-color: #fff;
+  background-color: #870052;
+  position: fixed;
+  right: 0; bottom: 0; left: 0;
+  margin: auto;
+  height: auto;
+  z-index: 99;
 }
 
 @-webkit-keyframes fadeInDown {
@@ -90,7 +91,7 @@ body {
   }
 }
 
-.button {
+button {
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
   -webkit-animation-duration: 0.8s;
@@ -99,7 +100,7 @@ body {
   animation-name: fadeInDown;
 }
 
-.button {
+button {
   -webkit-animation-duration: 0.4s;
   animation-duration: 0.4s;
 }

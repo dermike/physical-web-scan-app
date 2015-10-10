@@ -1,37 +1,27 @@
 (function() {
   var ipc = require('ipc'),
       shell = require('shell'),
-      results = document.getElementById('results');
+      results = document.getElementById('results'),
+      status = document.getElementById('status');
 
   ipc.on('status', function(message, clear) {
-    var status = document.getElementById('status') || document.createElement('div');
-    if (!status.id) {
-      status.classList.add('vertical-center');
-      status.id = 'status';
-      document.body.appendChild(status);
-    }
     status.innerHTML = message;
-    
+    status.classList.remove('hide');
     if (clear) {
       results.innerHTML = '';
     }
-    
   });
 
   ipc.on('url', function(message) {
     var button = document.createElement('button'),
-        desc = document.createElement('p'),
-        status = document.getElementById('status');
+        desc = document.createElement('p');
     
-    if (status && status.id) {
-      status.parentNode.removeChild(status);
-    }
+    status.classList.add('hide');
     
-    button.classList.add('button', 'expand');
     button.innerHTML = message[0];
     button.onclick = function() { go(message[2]); };
     
-    desc.innerHTML = message[1] + '<a href="#">' + message[2] + '</a>';
+    desc.innerHTML = '<a href="#">' + message[2] + '</a>' + message[1];
     desc.onclick = function() { go(message[2]); };
     
     results.insertBefore(desc, results.firstChild);
@@ -41,19 +31,5 @@
   function go(link) {
     shell.openExternal(link);
   }
-
-  function reset() {
-    var status = document.getElementById('status') || document.createElement('div');
-    results.innerHTML = '';
-    
-    if (!status.id) {
-      status.classList.add('vertical-center');
-      status.id = 'status';
-      status.innerHTML = 'Waiting to scan... Press CMD + S to start.';
-      document.body.appendChild(status);
-    }
-  };
-
-  reset();
   
 })();
