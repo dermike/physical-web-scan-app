@@ -14,14 +14,14 @@ app.on('window-all-closed', function() {
 
 noble.on('scanStart', function() {
   console.log('Scan started...');
-  mainWindow.webContents.send('status', 'Scanning for Physical Web beacons. Press <span class="key">&#8984;</span> + <span class="key">T</span> to stop.', true);
+  mainWindow.webContents.send('status', 'Scanning for Physical Web beacons. Press <span class="key" aria-label="command">&#8984;</span> + <span class="key">T</span> to stop.', true);
   counter = 0;
   app.dock.setBadge('');
 });
 
 noble.on('scanStop', function() {
   console.log('Scan stopped...');
-  mainWindow.webContents.send('status', 'Scanning stopped. Press <span class="key">&#8984;</span> + <span class="key">S</span> to restart scan.');
+  mainWindow.webContents.send('status', 'Scanning stopped. Press <span class="key" aria-label="command">&#8984;</span> + <span class="key">S</span> to restart scan.');
 });
     
 noble.on('discover', function(peripheral) {
@@ -61,7 +61,7 @@ app.on('ready', function() {
             if (noble.state === 'poweredOn') {
               noble.startScanning(['feaa']);
             } else {
-              mainWindow.webContents.send('status', 'Bluetooth not ready or turned on. Press <span class="key">&#8984;</span> + <span class="key">S</span> to retry.');
+              mainWindow.webContents.send('status', 'Bluetooth not ready or turned on. Press <span class="key" aria-label="command">&#8984;</span> + <span class="key">S</span> to retry.');
             }
           }
         },
