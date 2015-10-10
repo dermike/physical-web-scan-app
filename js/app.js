@@ -7,6 +7,7 @@
   ipc.on('status', function(message, clear) {
     status.innerHTML = message;
     status.classList.remove('hide');
+    status.setAttribute('aria-hidden', false);
     if (clear) {
       results.innerHTML = '';
     }
@@ -17,6 +18,7 @@
         desc = document.createElement('p');
     
     status.classList.add('hide');
+    status.setAttribute('aria-hidden', true);
     
     button.innerHTML = message[0];
     button.onclick = function() { go(message[2]); };
