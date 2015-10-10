@@ -73,6 +73,8 @@ button {
   color: #fff;
   padding: 5px;
   box-shadow: 1px 1px #660033;
+  width: 30px;
+  display: inline-block;
 }
 
 @-webkit-keyframes fadeInDown {
