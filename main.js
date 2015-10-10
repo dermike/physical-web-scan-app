@@ -14,7 +14,7 @@ app.on('window-all-closed', function() {
 
 noble.on('scanStart', function() {
   console.log('Scan started...');
-  mainWindow.webContents.send('status', 'Scanning for Physical Web beacons', true);
+  mainWindow.webContents.send('status', 'Scanning for Physical Web beacons. Press <span class="key">&#8984;</span> + <span class="key">T</span> to stop.', true);
   counter = 0;
   app.dock.setBadge('');
 });
