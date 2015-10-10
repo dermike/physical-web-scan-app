@@ -3,7 +3,7 @@ Scan for [Physical Web](https://github.com/google/physical-web) ([Eddystone](htt
 
 ![](https://raw.githubusercontent.com/dermike/electron-physical-web-scan/master/screenshot/screenshot.jpg)
 
-**[Download pre-built binary](https://github.com/dermike/electron-physical-web-scan/releases/download/0.2.0/PhysicalWebScan.zip)** or follow the instructions below to run with Electron or build your own binary.
+**[Download pre-built binary (64-bit)](https://github.com/dermike/electron-physical-web-scan/releases/download/0.2.0/PhysicalWebScan.zip)** or follow the instructions below to run with Electron or build your own binary.
 
 ### Prerequisites
 
