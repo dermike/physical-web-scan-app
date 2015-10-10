@@ -4,7 +4,7 @@
   "description": "Electron app for Mac OSX to scan for Physical Web (Eddystone) beacons",
   "main": "main.js",
   "scripts": {
-    "package": "node ./node_modules/electron-packager/cli.js ./ PhysicalWebScan --platform=darwin --arch=x64 --version=0.33.6 --ignore=node_modules/electron-rebuild --asar --icon=icon.icns"
+    "package": "node ./node_modules/electron-packager/cli.js ./ PhysicalWebScan --platform=darwin --arch=x64 --version=0.33.7 --ignore=node_modules/electron-rebuild --asar --icon=icon.icns"
   },
   "repository": {
     "type": "git",
