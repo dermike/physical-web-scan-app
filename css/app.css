@@ -72,6 +72,7 @@ button {
   border-radius: 3px;
   color: #fff;
   padding: 5px;
+  box-shadow: 1px 1px #660033;
 }
 
 @-webkit-keyframes fadeInDown {
