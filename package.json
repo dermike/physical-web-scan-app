@@ -23,6 +23,6 @@
     "electron-rebuild": "1.0.1"
   },
   "dependencies": {
-    "noble": "1.1.0"
+    "noble": "1.2.0"
   }
 }
