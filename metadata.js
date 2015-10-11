@@ -1,7 +1,7 @@
 var http = require('http');
 
-module.exports = function(url, cb) {
-  var urls = JSON.stringify({objects: url}),
+module.exports = function(urldata, cb) {
+  var urls = JSON.stringify({objects: urldata}),
       headers = {
         'Content-Type': 'application/json',
         'Content-Length': urls.length
