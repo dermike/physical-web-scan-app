@@ -1,7 +1,7 @@
 var http = require('http');
 
-module.exports = function(urls, cb) {
-  var urls = JSON.stringify({objects: urls}),
+module.exports = function(url, cb) {
+  var urls = JSON.stringify({objects: url}),
       headers = {
         'Content-Type': 'application/json',
         'Content-Length': urls.length
@@ -13,6 +13,13 @@ module.exports = function(urls, cb) {
         method: 'POST',
         headers: headers
   };
+  
+  function urlOnly() {
+    var data = JSON.parse(urls);
+    for (var i in data.objects) {
+      cb([data.objects[i].url, '', data.objects[i].url]);
+    }
+  }
 
   var req = http.request(options, function(res) {
     res.setEncoding('utf-8');
@@ -33,12 +40,14 @@ module.exports = function(urls, cb) {
       }
       catch(e) {
         console.log(e);
+        urlOnly();      
       }
     });
   });
 
   req.on('error', function(e) {
     console.log(e);
+    urlOnly();   
   });
 
   req.write(urls);
