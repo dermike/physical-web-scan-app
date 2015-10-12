@@ -6,8 +6,6 @@
 
   ipc.on('status', function(message, clear) {
     status.innerHTML = message;
-    status.classList.remove('hide');
-    status.setAttribute('aria-hidden', false);
     if (clear) {
       results.innerHTML = '';
     }
