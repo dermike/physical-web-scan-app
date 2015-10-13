@@ -8,7 +8,6 @@ Scan for [Physical Web](https://github.com/google/physical-web) ([Eddystone](htt
 ### Prerequisites
 
 * [Node.js](https://nodejs.org/)
-* [Electron](http://electron.atom.io)
 
 ### Install and build
 
