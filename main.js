@@ -1,43 +1,43 @@
-var app = require('app'),
-    BrowserWindow = require('browser-window'),
-    Menu = require('menu'),
-    noble = require('noble'),
-    metadata = require('./metadata.js'),
-    urldecode = require('./urldecode.js'),
-    mainWindow = null,
-    counter = 0;
+'use strict';
+let app = require('app'),
+  BrowserWindow = require('browser-window'),
+  Menu = require('menu'),
+  noble = require('noble'),
+  metadata = require('./metadata.js'),
+  urldecode = require('./urldecode.js'),
+  mainWindow = null,
+  counter = 0;
 
 // Quit when all windows are closed.
-app.on('window-all-closed', function() {
+app.on('window-all-closed', () => {
   app.quit();
 });
 
-noble.on('scanStart', function() {
+noble.on('scanStart', () => {
   console.log('Scan started...');
   mainWindow.webContents.send('status', 'Scanning for Physical Web beacons. Press <span class="key" aria-label="command">&#8984;</span> + <span class="key">T</span> to stop.', true);
   counter = 0;
   app.dock.setBadge('');
 });
 
-noble.on('scanStop', function() {
+noble.on('scanStop', () => {
   console.log('Scan stopped...');
   mainWindow.webContents.send('status', 'Scanning stopped. Press <span class="key" aria-label="command">&#8984;</span> + <span class="key">S</span> to restart scan.');
 });
-    
-noble.on('discover', function(peripheral) {
-  var serviceData = peripheral.advertisement.serviceData;
+
+noble.on('discover', peripheral => {
+  let serviceData = peripheral.advertisement.serviceData;
   if (serviceData && serviceData.length) {
-    var objects = [];
-    for (var i in serviceData) {
-      
-      // check if Eddystone-URL 
-      if (serviceData[i].data.toString('hex').substr(0,2) === '10') {
-        var url = urldecode(serviceData[i].data.toString('hex'));
-        objects.push({url: url});
+    let objects = [];
+    for (let i in serviceData) {
+      // check if Eddystone-URL
+      if (serviceData[i].data.toString('hex').substr(0, 2) === '10') {
+        let url = urldecode(serviceData[i].data.toString('hex'));
+        objects.push({'url': url});
       }
     }
     if (objects.length) {
-      metadata(objects, function(message) {
+      metadata(objects, message => {
         mainWindow.webContents.send('url', message);
         if (!mainWindow.isFocused()) {
           counter ++;
@@ -48,16 +48,15 @@ noble.on('discover', function(peripheral) {
   }
 });
 
-app.on('ready', function() {
-  
-  var menuTemplate = [
+app.on('ready', () => {
+  const menuTemplate = [
     {
-      label: 'Physical Web Scan',
-      submenu: [
+      'label': 'Physical Web Scan',
+      'submenu': [
         {
-          label: 'Scan for beacons',
-          accelerator: 'Command+S',
-          click: function() {
+          'label': 'Scan for beacons',
+          'accelerator': 'Command+S',
+          'click': () => {
             if (noble.state === 'poweredOn') {
               noble.startScanning(['feaa']);
             } else {
@@ -66,43 +65,41 @@ app.on('ready', function() {
           }
         },
         {
-          label: 'Stop scanning',
-          accelerator: 'Command+T',
-          click: function() {
+          'label': 'Stop scanning',
+          'accelerator': 'Command+T',
+          'click': () => {
             noble.stopScanning();
           }
         },
         {
-          label: 'Quit',
-          accelerator: 'Command+Q',
-          click: function() { app.quit(); }
+          'label': 'Quit',
+          'accelerator': 'Command+Q',
+          'click': () => { app.quit(); }
         }
       ]
     }
   ];
-  
-  menu = Menu.buildFromTemplate(menuTemplate);
+
+  let menu = Menu.buildFromTemplate(menuTemplate);
   Menu.setApplicationMenu(menu);
 
-  mainWindow = new BrowserWindow({width: 480, height: 600});
+  mainWindow = new BrowserWindow({'width': 480, 'height': 600});
 
-  mainWindow.loadUrl('file://' + __dirname + '/index.html');
+  mainWindow.loadURL('file://' + __dirname + '/index.html');
 
-  mainWindow.on('closed', function() {
+  mainWindow.on('closed', () => {
     mainWindow = null;
   });
-  
-  mainWindow.webContents.on('did-finish-load', function() {
+
+  mainWindow.webContents.on('did-finish-load', () => {
     console.log(noble.state);
     if (noble.state === 'poweredOn') {
       noble.startScanning(['feaa']);
     }
-
   });
-  
 });
 
-app.on('browser-window-focus', function() {
+app.on('browser-window-focus', () => {
   counter = 0;
   app.dock.setBadge('');
 });
