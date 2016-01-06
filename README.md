@@ -8,6 +8,7 @@ Scan for [Physical Web](https://github.com/google/physical-web) ([Eddystone](htt
 ### Prerequisites
 
 * [Node.js](https://nodejs.org/)
+* [Xcode](https://developer.apple.com/xcode/download/) and its `Command Line Tools`. You can find this under the menu `Xcode -> Preferences -> Downloads`
 
 ### Install and build
 
