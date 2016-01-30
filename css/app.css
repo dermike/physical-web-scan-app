@@ -77,18 +77,6 @@ button {
   display: inline-block;
 }
 
-@-webkit-keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(-20px);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-  }
-}
-
 @keyframes fadeInDown {
   0% {
     opacity: 0;
@@ -102,15 +90,7 @@ button {
 }
 
 button {
-  -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
-  -webkit-animation-duration: 0.8s;
-  animation-duration: 0.8s;
-  -webkit-animation-name: fadeInDown;
-  animation-name: fadeInDown;
-}
-
-button {
-  -webkit-animation-duration: 0.4s;
   animation-duration: 0.4s;
+  animation-name: fadeInDown;
 }
