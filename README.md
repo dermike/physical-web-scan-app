@@ -5,7 +5,7 @@ Scan for [Physical Web](https://github.com/google/physical-web) ([Eddystone](htt
 
 **[Download pre-built binary (64-bit)](https://github.com/dermike/electron-physical-web-scan/releases/download/0.2.2/PhysicalWebScan.zip)** or follow the instructions below to run with Electron or build your own binary.
 
-### Prerequisites
+### Prerequisites to build
 
 * [Node.js](https://nodejs.org/)
 * [Xcode](https://developer.apple.com/xcode/download/) and its `Command Line Tools`. You can find this under the menu `Xcode -> Preferences -> Downloads`
