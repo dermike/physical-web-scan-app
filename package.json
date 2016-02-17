@@ -24,6 +24,6 @@
     "electron-rebuild": "1.1.3"
   },
   "dependencies": {
-    "noble": "1.2.1"
+    "noble": "1.3.0"
   }
 }
