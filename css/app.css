@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  min-height: 100%;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -9,6 +10,13 @@ body {
   background: #fff;
   font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   line-height: 1.4;
+}
+
+body.scanning {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjZTFlMWUxIiBoZWlnaHQ9IjQ4IiB2aWV3Qm94PSIwIDAgMjQgMzAiIHdpZHRoPSI0OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTE0LjI0IDEyLjAxbDIuMzIgMi4zMmMuMjgtLjcyLjQ0LTEuNTEuNDQtMi4zMyAwLS44Mi0uMTYtMS41OS0uNDMtMi4zMWwtMi4zMyAyLjMyem01LjI5LTUuM2wtMS4yNiAxLjI2Yy42MyAxLjIxLjk4IDIuNTcuOTggNC4wMnMtLjM2IDIuODItLjk4IDQuMDJsMS4yIDEuMmMuOTctMS41NCAxLjU0LTMuMzYgMS41NC01LjMxLS4wMS0xLjg5LS41NS0zLjY3LTEuNDgtNS4xOXptLTMuODIgMUwxMCAySDl2Ny41OUw0LjQxIDUgMyA2LjQxIDguNTkgMTIgMyAxNy41OSA0LjQxIDE5IDkgMTQuNDFWMjJoMWw1LjcxLTUuNzEtNC4zLTQuMjkgNC4zLTQuMjl6TTExIDUuODNsMS44OCAxLjg4TDExIDkuNTlWNS44M3ptMS44OCAxMC40NkwxMSAxOC4xN3YtMy43NmwxLjg4IDEuODh6Ii8+PC9zdmc+");
+  background-repeat: no-repeat;
+  background-size: 200px;
+  background-position: center;
 }
 
 #results {

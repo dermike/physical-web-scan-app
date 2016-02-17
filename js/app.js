@@ -12,6 +12,9 @@
     status.innerHTML = message;
     if (clear) {
       results.innerHTML = '';
+      document.body.classList.add('scanning');
+    } else {
+      document.body.classList.remove('scanning');
     }
   });
 
