@@ -1,11 +1,11 @@
 'use strict';
-let app = require('app'),
-  BrowserWindow = require('browser-window'),
-  Menu = require('menu'),
-  noble = require('noble'),
-  metadata = require('./metadata.js'),
-  urldecode = require('./urldecode.js'),
-  mainWindow = null,
+const {app} = require('electron');
+const {BrowserWindow} = require('electron');
+const {Menu} = require('electron');
+const noble = require('noble');
+const metadata = require('./metadata.js');
+const urldecode = require('./urldecode.js');
+let mainWindow = null,
   counter = 0;
 
 // Quit when all windows are closed.
@@ -40,7 +40,7 @@ noble.on('discover', peripheral => {
       metadata(objects, message => {
         mainWindow.webContents.send('url', message);
         if (!mainWindow.isFocused()) {
-          counter ++;
+          counter += 1;
           app.dock.setBadge('' + counter + '');
         }
       });

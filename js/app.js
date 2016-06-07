@@ -1,14 +1,15 @@
-(function pw() {
-  var ipc = require('electron').ipcRenderer,
-    shell = require('shell'),
-    results = document.getElementById('results'),
-    status = document.getElementById('status');
+'use strict';
+{
+  const {ipcRenderer} = require('electron');
+  const {shell} = require('electron');
+  const results = document.getElementById('results');
+  const status = document.getElementById('status');
 
   function go(link) {
     shell.openExternal(link);
   }
 
-  ipc.on('status', function ipcstatus(event, message, clear) {
+  ipcRenderer.on('status', (event, message, clear) => {
     status.innerHTML = message;
     if (clear) {
       results.innerHTML = '';
@@ -18,17 +19,17 @@
     }
   });
 
-  ipc.on('url', function ipcurl(event, message) {
-    var button = document.createElement('button'),
+  ipcRenderer.on('url', (event, message) => {
+    let button = document.createElement('button'),
       desc = document.createElement('p');
 
     button.innerHTML = message[0];
-    button.onclick = function bclick() { go(message[2]); };
+    button.onclick = () => { go(message[2]); };
 
     desc.innerHTML = '<a href="#">' + message[2] + '</a>' + message[1];
-    desc.onclick = function dclick() { go(message[2]); };
+    desc.onclick = () => { go(message[2]); };
 
     results.insertBefore(desc, results.firstChild);
     results.insertBefore(button, results.firstChild);
   });
-})();
+}
