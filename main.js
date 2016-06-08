@@ -1,7 +1,5 @@
 'use strict';
-const {app} = require('electron');
-const {BrowserWindow} = require('electron');
-const {Menu} = require('electron');
+const {app, BrowserWindow, Menu} = require('electron');
 const noble = require('noble');
 const metadata = require('./metadata.js');
 const urldecode = require('./urldecode.js');

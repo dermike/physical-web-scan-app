@@ -1,7 +1,6 @@
 'use strict';
 {
-  const {ipcRenderer} = require('electron');
-  const {shell} = require('electron');
+  const { ipcRenderer, shell } = require('electron');
   const results = document.getElementById('results');
   const status = document.getElementById('status');
 
@@ -21,13 +20,14 @@
 
   ipcRenderer.on('url', (event, message) => {
     let button = document.createElement('button'),
-      desc = document.createElement('p');
+      desc = document.createElement('p'),
+      [title, description, url] = message;
 
-    button.innerHTML = message[0];
-    button.onclick = () => { go(message[2]); };
+    button.innerHTML = title;
+    button.onclick = () => { go(url); };
 
-    desc.innerHTML = '<a href="#">' + message[2] + '</a>' + message[1];
-    desc.onclick = () => { go(message[2]); };
+    desc.innerHTML = '<a href="#">' + url + '</a>' + description;
+    desc.onclick = () => { go(url); };
 
     results.insertBefore(desc, results.firstChild);
     results.insertBefore(button, results.firstChild);
