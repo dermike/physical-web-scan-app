@@ -1,3 +1,4 @@
+/* eslint no-console: 0 */
 'use strict';
 const {app, BrowserWindow, Menu} = require('electron');
 const noble = require('noble');
