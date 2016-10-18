@@ -1,4 +1,4 @@
-# electron-physical-web-scan
+# physical-web-scan-app
 Scan for [Physical Web](https://github.com/google/physical-web) ([Eddystone](https://github.com/google/eddystone)) bluetooth beacons from your computer. Mac OSX desktop app of the [physical-web-scan](https://github.com/dermike/physical-web-scan) project made with [Electron](http://electron.atom.io).
 
 ![](https://raw.githubusercontent.com/dermike/electron-physical-web-scan/master/screenshot/screenshot.jpg)
