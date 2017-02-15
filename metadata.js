@@ -33,10 +33,14 @@ module.exports = (urldata, cb) => {
       res.on('end', () => {
         try {
           let response = JSON.parse(responseString);
-          for (let i in response.metadata) {
-            if (response.metadata.hasOwnProperty(i)) {
-              let data = response.metadata[i];
-              cb([data.title, data.description, data.displayUrl]);
+          if(response.metadata.length==0){
+            urlOnly();
+          }else{
+            for (let i in response.metadata) {
+              if (response.metadata.hasOwnProperty(i)) {
+                let data = response.metadata[i];
+                cb([data.title, data.description, data.displayUrl]);
+              }
             }
           }
         } catch (e) {
