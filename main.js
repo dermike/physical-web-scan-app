@@ -36,7 +36,7 @@ noble.on('discover', peripheral => {
       }
     }
     if (objects.length) {
-      metadata(objects, message => {
+      metadata(objects).then((message) => {
         mainWindow.webContents.send('url', message);
         if (!mainWindow.isFocused()) {
           counter += 1;
