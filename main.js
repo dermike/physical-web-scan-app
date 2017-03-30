@@ -36,7 +36,7 @@ noble.on('discover', peripheral => {
       }
     }
     if (objects.length) {
-      metadata(objects, Menu.getApplicationMenu().items[1].submenu.items[0].checked).then((message) => {
+      metadata(objects, Menu.getApplicationMenu().items[1].submenu.items[0].checked, message => {
         mainWindow.webContents.send('url', message);
         if (!mainWindow.isFocused()) {
           counter += 1;
