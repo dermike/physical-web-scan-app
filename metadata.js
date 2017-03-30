@@ -1,7 +1,7 @@
 'use strict';
 let http = require('http');
 
-module.exports = urldata => {
+module.exports = (urldata, bypassProxyService) => {
   return new Promise(resolve => {
     let urls = JSON.stringify({'objects': urldata}),
       headers = {
@@ -34,7 +34,7 @@ module.exports = urldata => {
         res.on('end', () => {
           try {
             let response = JSON.parse(responseString);
-            if (!response.metadata.length) {
+            if (!response.metadata.length && bypassProxyService) {
               urlOnly();
             } else {
               for (let i in response.metadata) {

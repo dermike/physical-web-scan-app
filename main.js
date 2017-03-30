@@ -36,7 +36,7 @@ noble.on('discover', peripheral => {
       }
     }
     if (objects.length) {
-      metadata(objects).then((message) => {
+      metadata(objects, Menu.getApplicationMenu().items[1].submenu.items[0].checked).then((message) => {
         mainWindow.webContents.send('url', message);
         if (!mainWindow.isFocused()) {
           counter += 1;
@@ -74,6 +74,21 @@ app.on('ready', () => {
           'label': 'Quit',
           'accelerator': 'Command+Q',
           'click': () => { app.quit(); }
+        }
+      ]
+    },
+    {
+      'label': 'Developer settings',
+      'submenu': [
+        {
+          'label': 'Bypass proxy service',
+          'type': 'checkbox',
+          'checked': false,
+          'click': item => {
+            if (item.checked) {
+              noble.startScanning(['feaa']);
+            }
+          }
         }
       ]
     }
