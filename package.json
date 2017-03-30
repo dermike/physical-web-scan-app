@@ -1,6 +1,6 @@
 {
   "name": "electron-physical-web-scan",
-  "version": "0.2.8",
+  "version": "0.3.0",
   "description": "Electron app for Mac OSX to scan for Physical Web (Eddystone) beacons",
   "main": "main.js",
   "scripts": {
@@ -19,11 +19,11 @@
   "author": "Mikael Jergefelt",
   "license": "ISC",
   "devDependencies": {
-    "electron-packager": "8.0.0",
-    "electron-prebuilt": "1.4.0",
-    "electron-rebuild": "1.2.1"
+    "electron-packager": "8.6.0",
+    "electron-prebuilt": "1.4.13",
+    "electron-rebuild": "1.5.7"
   },
   "dependencies": {
-    "noble": "1.7.0"
+    "noble": "1.8.0"
   }
 }
