@@ -85,7 +85,7 @@ app.on('ready', () => {
           'type': 'checkbox',
           'checked': false,
           'click': item => {
-            if (item.checked) {
+            if (item.checked && noble.state === 'poweredOn') {
               noble.startScanning(['feaa']);
             }
           }
