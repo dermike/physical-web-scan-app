@@ -107,9 +107,16 @@ app.on('ready', () => {
 
   mainWindow.webContents.on('did-finish-load', () => {
     console.log(noble.state);
-    if (noble.state === 'poweredOn') {
-      noble.startScanning(['feaa']);
-    }
+    let startScan = () => {
+      setTimeout(() => {
+        if (noble.state === 'poweredOn') {
+          noble.startScanning(['feaa']);
+        } else {
+          startScan();
+        }
+      }, 300);
+    };
+    startScan();
   });
 });
 

@@ -1,12 +1,12 @@
 {
-  "name": "electron-physical-web-scan",
-  "version": "0.3.0",
+  "name": "physical-web-scan-app",
+  "version": "0.3.1",
   "description": "Electron app for Mac OSX to scan for Physical Web (Eddystone) beacons",
   "main": "main.js",
   "scripts": {
-    "package": "node ./node_modules/electron-packager/cli.js ./ PhysicalWebScan --platform=darwin --arch=x64 --electron-version=1.4.13 --ignore=node_modules/electron-rebuild --asar --icon=icon.icns",
+    "package": "node ./node_modules/electron-packager/cli.js ./ PhysicalWebScan --platform=darwin --arch=x64 --electron-version=1.8.2 --ignore=node_modules/electron-rebuild --asar --icon=icon.icns",
     "rebuild": "node ./node_modules/.bin/electron-rebuild",
-    "electron": "node ./node_modules/electron-prebuilt/cli.js ."
+    "electron": "node ./node_modules/electron/cli.js ."
   },
   "repository": {
     "type": "git",
@@ -19,11 +19,11 @@
   "author": "Mikael Jergefelt",
   "license": "ISC",
   "devDependencies": {
-    "electron-packager": "8.6.0",
-    "electron-prebuilt": "1.4.13",
-    "electron-rebuild": "1.5.7"
+    "electron": "1.8.2",
+    "electron-packager": "11.0.1",
+    "electron-rebuild": "1.7.3"
   },
   "dependencies": {
-    "noble": "1.8.0"
+    "noble": "1.9.0"
   }
 }
