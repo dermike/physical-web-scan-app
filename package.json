@@ -1,6 +1,6 @@
 {
   "name": "physical-web-scan-app",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Electron app for Mac OSX to scan for Physical Web (Eddystone) beacons",
   "main": "main.js",
   "scripts": {
